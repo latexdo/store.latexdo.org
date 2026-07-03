@@ -5,25 +5,20 @@ The store deploys as Cloudflare Workers static assets.
 ## Local Deploy
 
 ```sh
+npm run deploy
+```
+
+Wrangler runs `npm run build` from `wrangler.jsonc` and uploads `dist/`.
+
+```sh
 npm run build
 npx wrangler deploy
 ```
 
-Or:
+The second form is equivalent when dependencies are installed.
 
-```sh
-npm run deploy
-```
+## Cloudflare Git Deploy
 
-`npm run build` validates the catalog and prepares `dist/`. Wrangler reads `wrangler.jsonc` and uploads `dist/`.
-
-## GitHub Actions Deploy
-
-`.github/workflows/deploy.yml` runs after merges to `main`.
-
-Required repository secrets:
-
-- `CLOUDFLARE_API_TOKEN`
-- `CLOUDFLARE_ACCOUNT_ID`
+Cloudflare deploys the store from the connected GitHub repository. GitHub Actions does not run the production deploy and does not need Cloudflare API secrets.
 
 The Worker route is configured as `store.latexdo.org/*` under the `latexdo.org` zone.

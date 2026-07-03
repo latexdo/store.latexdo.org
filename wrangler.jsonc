@@ -7,6 +7,9 @@
     "pattern": "store.latexdo.org/*",
     "zone_name": "latexdo.org"
   },
+  "build": {
+    "command": "npm run build"
+  },
   "assets": {
     "directory": "./dist",
     "html_handling": "force-trailing-slash",

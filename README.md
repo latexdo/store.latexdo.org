@@ -16,17 +16,13 @@ Open `http://127.0.0.1:4176` after starting the dev server.
 
 ## Deploy
 
-The Cloudflare Workers deployment is configured in `wrangler.jsonc`.
+Cloudflare deploys this repository through its GitHub integration. The Workers static assets deployment is configured in `wrangler.jsonc`.
 
 ```sh
-npm run build
-npx wrangler deploy
+npm run deploy
 ```
 
-`npm run deploy` runs the same sequence. GitHub Actions also deploys on pushes to `main` with `npx wrangler deploy`; configure these repository secrets first:
-
-- `CLOUDFLARE_API_TOKEN`
-- `CLOUDFLARE_ACCOUNT_ID`
+For local/manual deploys, Wrangler runs the build command from `wrangler.jsonc` before uploading `dist/`.
 
 ## Repository Layout
 
@@ -37,7 +33,6 @@ npx wrangler deploy
 - `scripts/validate-catalog.mjs`: dependency-free catalog validator.
 - `.github/workflows/validate-pr.yml`: PR verification bot.
 - `.github/workflows/pr-bot.yml`: PR comment bot that asks for maintainer approval.
-- `.github/workflows/deploy.yml`: Cloudflare Workers deploy using Wrangler.
 - `wrangler.jsonc`: Worker route and static asset deployment config.
 
 ## Add An Extension
