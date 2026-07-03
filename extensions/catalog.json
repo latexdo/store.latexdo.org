@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "product": "LatexDo",
+  "updatedAt": "2026-07-03T00:00:00.000Z",
+  "extensions": [
+    {
+      "schemaVersion": 1,
+      "id": "latexdo.conference-readiness",
+      "kind": "extension",
+      "name": "Conference Readiness Pack",
+      "version": "1.0.0",
+      "description": "Enables conference checks, PDF compliance, and compiler diagnostics for submission-ready papers.",
+      "author": "LatexDo",
+      "category": "checking",
+      "tags": ["conference", "pdf", "submission"],
+      "homepage": "https://store.latexdo.org/extensions/latexdo.conference-readiness/",
+      "repository": "https://github.com/latexdo/store.latexdo.org",
+      "contributes": {
+        "featureFlags": {
+          "conferenceCheckerEnabled": true,
+          "checkEmbeddedFonts": true,
+          "checkFigureReferences": true,
+          "checkTableReferences": true,
+          "errorDoctorEnabled": true,
+          "explainErrors": true,
+          "pdfComplianceEnabled": true,
+          "checkPageCount": true,
+          "checkType3Fonts": true
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "latexdo.citation-workbench",
+      "kind": "extension",
+      "name": "Citation Workbench",
+      "version": "1.0.0",
+      "description": "Turns on citation analysis, duplicate detection, stale-reference warnings, and BibTeX helpers.",
+      "author": "LatexDo",
+      "category": "bibliography",
+      "tags": ["bibtex", "citations", "references"],
+      "homepage": "https://store.latexdo.org/extensions/latexdo.citation-workbench/",
+      "repository": "https://github.com/latexdo/store.latexdo.org",
+      "contributes": {
+        "featureFlags": {
+          "citationAssistantEnabled": true,
+          "detectMissingCitations": true,
+          "detectUnusedEntries": true,
+          "detectDuplicateReferences": true,
+          "detectBrokenLinks": true,
+          "suggestCitationKeys": true,
+          "importMetadataSources": true,
+          "warnOldCitations": true
+        },
+        "snippets": [
+          {
+            "label": "annotatedbib",
+            "detail": "Annotated BibTeX note",
+            "documentation": "Creates a commented BibTeX placeholder for manual imports.",
+            "insertText": "% ${1:Paper note}\n@article{${2:key},\n  title = {${3:Title}},\n  author = {${4:Author}},\n  year = {${5:2026}}\n}"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "latexdo.figure-lab",
+      "kind": "extension",
+      "name": "Figure Lab",
+      "version": "1.0.0",
+      "description": "Adds figure, subfigure, and TikZ helpers for papers that depend on diagrams and visual results.",
+      "author": "LatexDo",
+      "category": "graphics",
+      "tags": ["figures", "tikz", "graphics"],
+      "homepage": "https://store.latexdo.org/extensions/latexdo.figure-lab/",
+      "repository": "https://github.com/latexdo/store.latexdo.org",
+      "contributes": {
+        "featureFlags": {
+          "tikzConverterEnabled": true,
+          "tikzConverterAutoOpen": true,
+          "checkUnreferencedFigures": true
+        },
+        "snippets": [
+          {
+            "label": "subfigures",
+            "detail": "Two-panel figure",
+            "documentation": "Requires the subcaption package.",
+            "insertText": "\\begin{figure}[t]\n  \\centering\n  \\begin{subfigure}{0.48\\textwidth}\n    \\includegraphics[width=\\linewidth]{${1:first}}\n    \\caption{${2:First panel}}\n  \\end{subfigure}\\hfill\n  \\begin{subfigure}{0.48\\textwidth}\n    \\includegraphics[width=\\linewidth]{${3:second}}\n    \\caption{${4:Second panel}}\n  \\end{subfigure}\n  \\caption{${5:Caption}}\n  \\label{fig:${6:label}}\n\\end{figure}"
+          },
+          {
+            "label": "tikzplot",
+            "detail": "PGFPlots figure",
+            "documentation": "Requires tikz and pgfplots packages.",
+            "insertText": "\\begin{tikzpicture}\n  \\begin{axis}[\n    xlabel={${1:x}},\n    ylabel={${2:y}},\n    grid=both\n  ]\n    \\addplot coordinates {${3:(0,0) (1,1)}};\n  \\end{axis}\n\\end{tikzpicture}"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "latexdo.math-notation-kit",
+      "kind": "extension",
+      "name": "Math Notation Kit",
+      "version": "1.0.0",
+      "description": "Enables notation checks and adds theorem, proof, definition, and symbol snippets.",
+      "author": "LatexDo",
+      "category": "writing",
+      "tags": ["math", "theorems", "notation"],
+      "homepage": "https://store.latexdo.org/extensions/latexdo.math-notation-kit/",
+      "repository": "https://github.com/latexdo/store.latexdo.org",
+      "contributes": {
+        "featureFlags": {
+          "notationManagerEnabled": true,
+          "detectNotation": true,
+          "detectNotationConflicts": true,
+          "detectUndefinedNotation": true
+        },
+        "snippets": [
+          {
+            "label": "theorem",
+            "detail": "Theorem environment",
+            "documentation": "Adds a labeled theorem block.",
+            "insertText": "\\begin{theorem}\n\\label{thm:${1:name}}\n${0:Statement.}\n\\end{theorem}"
+          },
+          {
+            "label": "proof",
+            "detail": "Proof environment",
+            "documentation": "Adds a proof block.",
+            "insertText": "\\begin{proof}\n${0:Proof.}\n\\end{proof}"
+          },
+          {
+            "label": "definition",
+            "detail": "Definition environment",
+            "documentation": "Adds a labeled definition block.",
+            "insertText": "\\begin{definition}\n\\label{def:${1:name}}\n${0:Definition.}\n\\end{definition}"
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "latexdo.reproducibility-kit",
+      "kind": "extension",
+      "name": "Reproducibility Kit",
+      "version": "1.0.0",
+      "description": "Checks code, data, hardware, hyperparameter, metric, seed, and license reporting.",
+      "author": "LatexDo",
+      "category": "checking",
+      "tags": ["reproducibility", "artifact", "checklist"],
+      "homepage": "https://store.latexdo.org/extensions/latexdo.reproducibility-kit/",
+      "repository": "https://github.com/latexdo/store.latexdo.org",
+      "contributes": {
+        "featureFlags": {
+          "reproducibilityEnabled": true,
+          "checkCodeLink": true,
+          "checkDatasetLink": true,
+          "checkLicenseMentioned": true,
+          "checkHyperparameters": true,
+          "checkHardwareDetails": true,
+          "checkRandomSeeds": true,
+          "checkEvaluationMetrics": true
+        },
+        "snippets": [
+          {
+            "label": "artifactchecklist",
+            "detail": "Artifact checklist paragraph",
+            "documentation": "Adds a compact reproducibility statement.",
+            "insertText": "\\paragraph{Reproducibility.}\nCode is available at \\url{${1:https://...}}. Datasets, hyperparameters, hardware details, random seeds, and evaluation metrics are documented in Appendix~\\ref{${2:app:reproducibility}}."
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "latexdo.response-letter-kit",
+      "kind": "template",
+      "name": "Response Letter Kit",
+      "version": "1.0.0",
+      "description": "Adds reviewer-response snippets for rebuttals, revisions, and camera-ready letters.",
+      "author": "LatexDo",
+      "category": "templates",
+      "tags": ["review", "rebuttal", "response"],
+      "homepage": "https://store.latexdo.org/extensions/latexdo.response-letter-kit/",
+      "repository": "https://github.com/latexdo/store.latexdo.org",
+      "contributes": {
+        "templates": [
+          {
+            "id": "reviewer-response-letter",
+            "name": "Reviewer Response Letter",
+            "summary": "A structured response letter with reviewer comments and replies.",
+            "files": "main.tex",
+            "mainTex": "\\documentclass[11pt]{article}\n\n\\usepackage[margin=1in]{geometry}\n\\usepackage{hyperref}\n\\usepackage{xcolor}\n\n\\title{Response to Reviewers}\n\\author{Your Name}\n\\date{\\today}\n\n\\begin{document}\n\n\\maketitle\n\n\\section*{Summary of Revisions}\n\nThank you for the thoughtful reviews. We revised the manuscript to address the main concerns and clarify the presentation.\n\n\\section*{Reviewer 1}\n\n\\paragraph{Comment 1.}\n\\emph{Paste the reviewer comment here.}\n\n\\paragraph{Response.}\nThank you for this comment. We updated Section~\\ref{sec:changes} to clarify the point.\n\n\\section*{Changes}\n\\label{sec:changes}\n\n\\begin{itemize}\n  \\item Clarified the main contribution.\n  \\item Expanded the experimental details.\n  \\item Revised the discussion of limitations.\n\\end{itemize}\n\n\\end{document}\n"
+          }
+        ],
+        "snippets": [
+          {
+            "label": "reviewresponse",
+            "detail": "Reviewer response block",
+            "documentation": "Adds a concise response item for revision letters.",
+            "insertText": "\\paragraph{Reviewer ${1:1}, Comment ${2:1}.}\n\\emph{${3:Reviewer comment.}}\n\n\\paragraph{Response.}\n${0:Thank you for the helpful comment. We revised the manuscript to clarify this point.}"
+          },
+          {
+            "label": "revisionnote",
+            "detail": "Revision note",
+            "documentation": "Adds a short change summary paragraph.",
+            "insertText": "\\paragraph{Change made.}\nWe updated ${1:Section~\\ref{sec:...}} to ${0:describe the revision}."
+          }
+        ]
+      }
+    }
+  ]
+}

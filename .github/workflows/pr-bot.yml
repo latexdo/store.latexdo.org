@@ -1,0 +1,34 @@
+name: Store PR Bot
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: write
+
+jobs:
+  comment:
+    name: Post approval instructions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout trusted bot script
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Comment on PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/pr-bot-comment.mjs

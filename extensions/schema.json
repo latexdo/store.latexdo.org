@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://store.latexdo.org/extensions/schema.json",
+  "title": "LatexDo Extension Catalog",
+  "type": "object",
+  "required": ["schemaVersion", "product", "updatedAt", "extensions"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "product": { "const": "LatexDo" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "extensions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/extension" }
+    }
+  },
+  "$defs": {
+    "extension": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "id",
+        "kind",
+        "name",
+        "version",
+        "description",
+        "author",
+        "category",
+        "tags",
+        "contributes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]{2,80}$"
+        },
+        "kind": { "enum": ["extension", "template"] },
+        "name": { "type": "string", "minLength": 2, "maxLength": 80 },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]+){0,2}([-+][a-zA-Z0-9.-]+)?$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 12,
+          "maxLength": 260
+        },
+        "author": { "type": "string", "minLength": 2, "maxLength": 80 },
+        "category": {
+          "enum": [
+            "bibliography",
+            "checking",
+            "graphics",
+            "templates",
+            "workflow",
+            "writing"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "maxItems": 8,
+          "items": { "type": "string", "minLength": 1, "maxLength": 28 }
+        },
+        "homepage": { "type": "string", "pattern": "^https://" },
+        "repository": { "type": "string", "pattern": "^https://" },
+        "contributes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "featureFlags": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "acronymManagerEnabled": { "type": "boolean" },
+                "autoFixCommon": { "type": "boolean" },
+                "checkAbstractWordCount": { "type": "boolean" },
+                "checkCodeLink": { "type": "boolean" },
+                "checkDatasetLink": { "type": "boolean" },
+                "checkEmbeddedFonts": { "type": "boolean" },
+                "checkEvaluationMetrics": { "type": "boolean" },
+                "checkFigureReferences": { "type": "boolean" },
+                "checkHardwareDetails": { "type": "boolean" },
+                "checkHyperparameters": { "type": "boolean" },
+                "checkLicenseMentioned": { "type": "boolean" },
+                "checkPageCount": { "type": "boolean" },
+                "checkRandomSeeds": { "type": "boolean" },
+                "checkSectionsWithNoCitations": { "type": "boolean" },
+                "checkTableReferences": { "type": "boolean" },
+                "checkType3Fonts": { "type": "boolean" },
+                "checkUncitedCitations": { "type": "boolean" },
+                "checkUndefinedAcronym": { "type": "boolean" },
+                "checkUnreferencedFigures": { "type": "boolean" },
+                "citationAssistantEnabled": { "type": "boolean" },
+                "conferenceCheckerEnabled": { "type": "boolean" },
+                "detectBrokenLinks": { "type": "boolean" },
+                "detectDuplicateReferences": { "type": "boolean" },
+                "detectMissingCitations": { "type": "boolean" },
+                "detectNotation": { "type": "boolean" },
+                "detectNotationConflicts": { "type": "boolean" },
+                "detectUndefinedNotation": { "type": "boolean" },
+                "detectUnusedEntries": { "type": "boolean" },
+                "errorDoctorEnabled": { "type": "boolean" },
+                "explainErrors": { "type": "boolean" },
+                "importMetadataSources": { "type": "boolean" },
+                "notationManagerEnabled": { "type": "boolean" },
+                "pdfComplianceEnabled": { "type": "boolean" },
+                "reproducibilityEnabled": { "type": "boolean" },
+                "structureAssistantEnabled": { "type": "boolean" },
+                "suggestCitationKeys": { "type": "boolean" },
+                "suggestFixes": { "type": "boolean" },
+                "tikzConverterAutoOpen": { "type": "boolean" },
+                "tikzConverterEnabled": { "type": "boolean" },
+                "warnOldCitations": { "type": "boolean" }
+              }
+            },
+            "snippets": {
+              "type": "array",
+              "maxItems": 40,
+              "items": {
+                "type": "object",
+                "required": ["label", "insertText"],
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 48
+                  },
+                  "insertText": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  "detail": { "type": "string", "minLength": 1, "maxLength": 120 },
+                  "documentation": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  }
+                }
+              }
+            },
+            "templates": {
+              "type": "array",
+              "maxItems": 12,
+              "items": {
+                "type": "object",
+                "required": ["id", "name", "summary", "files", "mainTex"],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 48,
+                    "pattern": "^[a-z0-9][a-z0-9.-]{1,47}$"
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 80
+                  },
+                  "summary": {
+                    "type": "string",
+                    "minLength": 12,
+                    "maxLength": 220
+                  },
+                  "files": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 120
+                  },
+                  "mainTex": {
+                    "type": "string",
+                    "minLength": 20,
+                    "maxLength": 12000
+                  },
+                  "bibTex": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 8000
+                  }
+                }
+              }
+            }
+          },
+          "anyOf": [
+            { "required": ["featureFlags"] },
+            { "required": ["snippets"] },
+            { "required": ["templates"] }
+          ]
+        }
+      }
+    }
+  }
+}

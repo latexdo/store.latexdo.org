@@ -1,0 +1,14 @@
+{
+  "name": "store.latexdo.org",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static extension store for LatexDo.",
+  "scripts": {
+    "build": "node scripts/validate-catalog.mjs && node scripts/build-site.mjs",
+    "ci:pr": "node scripts/validate-catalog.mjs && node scripts/validate-pr.mjs && node scripts/build-site.mjs && node --check app.js && node --check scripts/build-site.mjs && node --check scripts/validate-catalog.mjs && node --check scripts/validate-pr.mjs && node --check scripts/pr-bot-comment.mjs",
+    "deploy": "npm run build && npx wrangler deploy",
+    "dev": "python3 -m http.server 4176",
+    "wrangler:dev": "npm run build && npx wrangler dev",
+    "test": "npm run build"
+  }
+}

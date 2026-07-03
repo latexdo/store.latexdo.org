@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "latexdo-store",
+  "compatibility_date": "2026-07-03",
+  "workers_dev": true,
+  "route": {
+    "pattern": "store.latexdo.org/*",
+    "zone_name": "latexdo.org"
+  },
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

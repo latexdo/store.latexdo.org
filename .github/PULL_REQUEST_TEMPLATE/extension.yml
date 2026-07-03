@@ -1,0 +1,46 @@
+name: Extension or template submission
+description: Submit a LatexDo extension, snippet pack, or template pack.
+title: "Store submission: "
+labels: ["store-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing to the LatexDo Store. The bot will validate your catalog entry and a maintainer will approve before merge.
+  - type: input
+    id: extension_id
+    attributes:
+      label: Extension ID
+      description: Must match the `id` in `extensions/catalog.json`.
+      placeholder: "community.my-pack"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Submission kind
+      options:
+        - extension
+        - template
+    validations:
+      required: true
+  - type: textarea
+    id: user_value
+    attributes:
+      label: Why should LatexDo users install this?
+      description: Explain the workflow it improves.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I added or updated `extensions/catalog.json`.
+          required: true
+        - label: I added `extensions/<extension-id>/index.html`.
+          required: true
+        - label: I ran `npm run build` locally.
+          required: true
+        - label: This contribution does not include trackers, credential prompts, obfuscated code, or unsafe content.
+          required: true
