@@ -12,18 +12,28 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <header class="topbar">
-      <a class="brand" href="/" aria-label="LatexDo Store">
-        <img src="/assets/icon.svg" alt="" />
-        <span>
-          <strong>LatexDo Store</strong>
-          <small>Extensions and snippet packs</small>
-        </span>
-      </a>
-      <nav aria-label="Primary">
-        <a href="#catalog">Catalog</a>
-        <a href="#contribute">Contribute</a>
-        <a href="https://github.com/latexdo/store.latexdo.org">GitHub</a>
+    <header class="site-header" data-header>
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="https://latexdo.org" aria-label="LatexDo home">
+          <img src="/assets/icon.svg" alt="" width="36" height="36" />
+          <span>LatexDo</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          data-nav-toggle
+        >
+          <span></span>
+          <span></span>
+        </button>
+        <div id="nav-links" class="nav-links" data-nav-links>
+          <a href="https://latexdo.org/#comparison">Comparison</a>
+          <a href="https://latexdo.org/downloads/">Desktop</a>
+          <a href="https://latexdo.org/#cli">CLI</a>
+          <a href="https://editor.latexdo.org">Online Editor <span class="preview-pill">Preview</span></a>
+        </div>
       </nav>
     </header>
 

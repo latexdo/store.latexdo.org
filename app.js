@@ -17,6 +17,23 @@ const catalogGrid = document.querySelector("[data-catalog-grid]");
 const detailRoot = document.querySelector("[data-extension-detail]");
 const searchInput = document.querySelector("[data-search]");
 const categorySelect = document.querySelector("[data-category]");
+const navToggle = document.querySelector("[data-nav-toggle]");
+const navLinksMenu = document.querySelector("[data-nav-links]");
+
+if (navToggle && navLinksMenu) {
+  navToggle.addEventListener("click", () => {
+    const open = !navLinksMenu.classList.contains("open");
+    navLinksMenu.classList.toggle("open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+  });
+
+  navLinksMenu.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      navLinksMenu.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
 
 init().catch((error) => {
   renderError(error instanceof Error ? error.message : "Could not load catalog.");
