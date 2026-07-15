@@ -19,6 +19,11 @@ const searchInput = document.querySelector("[data-search]");
 const categorySelect = document.querySelector("[data-category]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const navLinksMenu = document.querySelector("[data-nav-links]");
+const copyrightYear = document.querySelector("#copyright-year");
+
+if (copyrightYear) {
+  copyrightYear.textContent = String(new Date().getFullYear());
+}
 
 if (navToggle && navLinksMenu) {
   navToggle.addEventListener("click", () => {

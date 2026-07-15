@@ -99,6 +99,24 @@ a {
   color: var(--ink);
 }
 
+.nav-links a.nav-donate-link {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  background: var(--ink);
+  color: white;
+  padding: 8px 13px;
+}
+
+.nav-links a.nav-donate-link:hover,
+.nav-links a.nav-donate-link:focus-visible {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+  color: white;
+}
+
 .preview-pill {
   display: inline-flex;
   width: fit-content;
@@ -499,20 +517,67 @@ main {
   white-space: pre;
 }
 
-footer {
-  display: flex;
-  width: min(1180px, calc(100vw - 36px));
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
+.site-footer {
+  background: var(--ink);
+  color: #dbe5ee;
+  padding: 48px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(4, 1fr);
+  gap: 32px;
+  width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 20px 0 34px;
-  border-top: 1px solid var(--line);
-  color: var(--soft);
+}
+
+.site-footer h5 {
+  margin: 0 0 16px;
+  color: white;
   font-size: 12px;
+  font-weight: 860;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.site-footer .footer-brand p {
+  margin: 12px 0 0;
+  color: #a7b4c1;
+  font-size: 14px;
+}
+
+.site-footer nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.site-footer a {
+  color: #dbe5ee;
+  font-size: 14px;
+}
+
+.site-footer a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  grid-column: 1 / -1;
+  padding: 24px 0;
+  margin-top: 32px;
+  border-top: 1px solid rgb(255 255 255 / 12%);
+  color: #b8c3cf;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
+
   .catalog-hero,
   .catalog-controls,
   .contribute-panel {
@@ -554,10 +619,6 @@ footer {
     align-items: flex-start;
   }
 
-  main,
-  footer {
-    width: min(100vw - 24px, 1180px);
-  }
 
   .catalog-hero {
     min-height: 0;

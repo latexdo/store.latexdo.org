@@ -8,14 +8,83 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <header class="topbar">
-      <a class="brand" href="/">
-        <img src="/assets/icon.svg" alt="" />
-        <span><strong>LatexDo Store</strong><small>Extension detail</small></span>
-      </a>
-      <nav><a href="/">Catalog</a><a href="/CONTRIBUTING.md">Contribute</a></nav>
+    <header class="site-header" data-header>
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="https://latexdo.org" aria-label="LatexDo home">
+          <img src="/assets/icon.svg" alt="" width="36" height="36" />
+          <span>LatexDo</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          data-nav-toggle
+        >
+          <span></span>
+          <span></span>
+        </button>
+        <div id="nav-links" class="nav-links" data-nav-links>
+          <a href="https://latexdo.org/downloads/">Download</a>
+          <a href="https://editor.latexdo.org">Editor</a>
+          <a href="https://latexdo.org/cli/">CLI</a>
+          <a href="https://latexdo.org/about/">About</a>
+          <a href="https://docs.latexdo.org">Docs</a>
+          <a href="https://store.latexdo.org">Store</a>
+          <a class="nav-donate-link" href="https://latexdo.org/donations/">Donate</a>
+        </div>
+      </nav>
     </header>
     <main><section class="extension-detail" data-extension-detail></section></main>
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="https://latexdo.org" aria-label="LatexDo home">
+            <img src="/assets/icon.svg" alt="" width="28" height="28" />
+            <span>LatexDo</span>
+          </a>
+          <p>Modern LaTeX editing across web and desktop.</p>
+        </div>
+        <div>
+          <h5>Product</h5>
+          <nav aria-label="Product">
+            <a href="https://editor.latexdo.org">Editor</a>
+            <a href="https://latexdo.org/cli/">CLI</a>
+            <a href="https://latexdo.org/downloads/">Desktop</a>
+          </nav>
+        </div>
+        <div>
+          <h5>Resources</h5>
+          <nav aria-label="Resources">
+            <a href="https://latexdo.org/about/">About</a>
+            <a href="https://docs.latexdo.org">Docs</a>
+            <a href="https://latexdo.org/downloads/">Downloads</a>
+            <a href="https://latexdo.org/sitemap.xml">Sitemap</a>
+          </nav>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <nav aria-label="Company">
+            <a href="https://latexdo.org/privacy.html">Privacy</a>
+            <a href="https://latexdo.org/terms.html">Terms</a>
+            <a href="mailto:contact@latexdo.org">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h5>Community</h5>
+          <nav aria-label="Community">
+            <a href="https://github.com/latexdo/latexdo">Source</a>
+            <a href="https://latexdo.org/donations/">Donate</a>
+            <a href="https://linkedin.com/company/latexdo">LinkedIn</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; <span id="copyright-year"></span> LatexDo. All rights reserved.</span>
+          <span data-updated-at></span>
+        </div>
+      </div>
+    </footer>
+
     <script src="/app.js" type="module"></script>
   </body>
 </html>
