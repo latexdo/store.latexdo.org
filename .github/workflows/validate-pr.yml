@@ -5,6 +5,20 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:
+    inputs:
+      source_repository:
+        description: Repository that triggered this CI.
+        required: false
+      source_sha:
+        description: Commit SHA that triggered this CI.
+        required: false
+      source_run_id:
+        description: GitHub Actions run ID that triggered this CI.
+        required: false
+      source_run_url:
+        description: GitHub Actions run URL that triggered this CI.
+        required: false
 
 permissions:
   contents: read
