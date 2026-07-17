@@ -3,11 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LatexDo Store</title>
-    <meta
-      name="description"
-      content="Install manifest-based LatexDo extensions, feature packs, and LaTeX snippet packs."
-    />
+    <title>LatexDo Store Extension</title>
     <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/style.css" />
   </head>
@@ -39,55 +35,7 @@
         </div>
       </nav>
     </header>
-
-    <main>
-      <section class="catalog-hero" id="catalog">
-        <div>
-          <h1>Extension Store</h1>
-        </div>
-        <div class="hero-metrics" aria-label="Catalog summary">
-          <span><strong data-total-count>0</strong> available</span>
-          <span><strong data-category-count>0</strong> categories</span>
-        </div>
-      </section>
-
-      <section class="catalog-controls" aria-label="Catalog filters">
-        <label class="search-box">
-          <span>Search</span>
-          <input
-            data-search
-            type="search"
-            autocomplete="off"
-            placeholder="Search extensions"
-          />
-        </label>
-        <label>
-          <span>Category</span>
-          <select data-category>
-            <option value="all">All categories</option>
-          </select>
-        </label>
-        <a class="submit-link" href="#contribute">Submit extension</a>
-      </section>
-
-      <section class="catalog-grid" data-catalog-grid aria-live="polite"></section>
-
-      <section class="contribute-panel" id="contribute">
-        <div>
-          <h2>Publish To The Store</h2>
-          <p>
-            Add a manifest entry, include snippets or feature flags, run validation,
-            and open a pull request. LatexDo users receive it from the public catalog.
-          </p>
-        </div>
-        <div class="contribute-actions">
-          <a href="/CONTRIBUTING.md">Read guide</a>
-          <a href="/extensions/schema.json">Catalog schema</a>
-          <a href="https://github.com/latexdo/store.latexdo.org">Open repository</a>
-        </div>
-      </section>
-    </main>
-
+    <main><section class="extension-detail" data-extension-detail></section></main>
     <footer class="site-footer">
       <div class="footer-grid">
         <div class="footer-brand">

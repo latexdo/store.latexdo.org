@@ -118,10 +118,12 @@ The bot validates the catalog and comments with the merge checklist. A LatexDo m
 - `importMetadataSources`
 - `notationManagerEnabled`
 - `pdfComplianceEnabled`
+- `projectBibliographyEnabled`
 - `reproducibilityEnabled`
 - `structureAssistantEnabled`
 - `suggestCitationKeys`
 - `suggestFixes`
+- `tableGeneratorEnabled`
 - `tikzConverterAutoOpen`
 - `tikzConverterEnabled`
 - `warnOldCitations`
@@ -129,6 +131,7 @@ The bot validates the catalog and comments with the merge checklist. A LatexDo m
 ## Rules
 
 - Use a stable ID like `author.extension-name`.
+- Every entry must pass the LatexDo application parser through `npm run build`.
 - Keep snippets focused and safe to insert into LaTeX source.
 - Keep templates complete enough to compile or edit immediately.
 - Use HTTPS URLs for `homepage` and `repository`.

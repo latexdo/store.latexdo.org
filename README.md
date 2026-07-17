@@ -4,6 +4,8 @@ Static extension and template catalog for LatexDo at `https://store.latexdo.org`
 
 The LatexDo app reads `extensions/catalog.json`, validates each manifest, and lets users install safe manifest-based packs. Store submissions can enable existing LatexDo feature flags, contribute Monaco LaTeX snippets, and publish project templates. They do not run arbitrary JavaScript inside the editor.
 
+Every store build validates `extensions/catalog.json` with the LatexDo application parser. If you keep the app checkout somewhere other than `../latexdo`, set `LATEXDO_APP_ROOT=/path/to/latexdo` before running validation.
+
 ## Local Workflow
 
 ```sh
@@ -31,6 +33,7 @@ For local/manual deploys, Wrangler runs the build command from `wrangler.jsonc` 
 - `extensions/schema.json`: catalog JSON schema for contributors.
 - `extensions/<extension-id>/index.html`: detail page shells rendered from the catalog.
 - `scripts/validate-catalog.mjs`: dependency-free catalog validator.
+- `scripts/validate-latexdo-compat.mjs`: validates the catalog with the LatexDo app parser.
 - `.github/workflows/validate-pr.yml`: PR verification bot.
 - `.github/workflows/pr-bot.yml`: PR comment bot that asks for maintainer approval.
 - `wrangler.jsonc`: Worker route and static asset deployment config.

@@ -7,6 +7,7 @@ body:
     attributes:
       value: |
         Thanks for contributing to the LatexDo Store. The bot will validate your catalog entry and a maintainer will approve before merge.
+        Store entries must pass the LatexDo application parser before they can be merged.
   - type: input
     id: extension_id
     attributes:

@@ -106,10 +106,12 @@
                 "importMetadataSources": { "type": "boolean" },
                 "notationManagerEnabled": { "type": "boolean" },
                 "pdfComplianceEnabled": { "type": "boolean" },
+                "projectBibliographyEnabled": { "type": "boolean" },
                 "reproducibilityEnabled": { "type": "boolean" },
                 "structureAssistantEnabled": { "type": "boolean" },
                 "suggestCitationKeys": { "type": "boolean" },
                 "suggestFixes": { "type": "boolean" },
+                "tableGeneratorEnabled": { "type": "boolean" },
                 "tikzConverterAutoOpen": { "type": "boolean" },
                 "tikzConverterEnabled": { "type": "boolean" },
                 "warnOldCitations": { "type": "boolean" }
