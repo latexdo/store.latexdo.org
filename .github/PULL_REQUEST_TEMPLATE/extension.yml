@@ -41,7 +41,9 @@ body:
           required: true
         - label: I added `extensions/<extension-id>/index.html`.
           required: true
-        - label: I ran `npm run build` locally.
+        - label: I used `/builder/` or manually matched the store schema.
+          required: true
+        - label: I ran `npm run ci:pr` locally.
           required: true
         - label: This contribution does not include trackers, credential prompts, obfuscated code, or unsafe content.
           required: true

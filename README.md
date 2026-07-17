@@ -11,10 +11,13 @@ Every store build validates `extensions/catalog.json` with the LatexDo applicati
 ```sh
 npm install
 npm run build
+npm run ci:pr
 npm run dev
 ```
 
 Open `http://127.0.0.1:4176` after starting the dev server.
+The no-code builder is available at `http://127.0.0.1:4176/builder/`.
+Use `npm run ci:pr` for the full pre-merge validation, including the LatexDo app parser.
 
 ## Deploy
 
@@ -29,6 +32,7 @@ For local/manual deploys, Wrangler runs the build command from `wrangler.jsonc` 
 ## Repository Layout
 
 - `index.html`, `style.css`, `app.js`: static store website.
+- `builder/index.html`: no-code extension builder.
 - `extensions/catalog.json`: public catalog consumed by LatexDo.
 - `extensions/schema.json`: catalog JSON schema for contributors.
 - `extensions/<extension-id>/index.html`: detail page shells rendered from the catalog.
@@ -42,9 +46,10 @@ For local/manual deploys, Wrangler runs the build command from `wrangler.jsonc` 
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md). In short:
 
-1. Add a manifest entry to `extensions/catalog.json`.
-2. Add a detail page folder under `extensions/<your-extension-id>/`.
-3. Run `npm run build`.
-4. Open a pull request.
+1. Open `/builder/` and generate a manifest entry.
+2. Add the manifest entry to `extensions/catalog.json`.
+3. Add the generated detail page under `extensions/<your-extension-id>/index.html`.
+4. Run `npm run ci:pr`.
+5. Open a pull request.
 
 GitHub Actions validates the PR. CODEOWNERS requires `@omarabedelkader` approval before merge; see [docs/branch-protection.md](docs/branch-protection.md).

@@ -2,6 +2,8 @@
 
 LatexDo store submissions are manifest-based. A contribution can turn on supported LatexDo features, add LaTeX snippets, or publish project templates. It cannot execute code in the editor.
 
+Use `/builder/` on the store site to create the manifest and detail page without writing JSON by hand.
+
 ## Manifest Fields
 
 Add your entry to `extensions/catalog.json`:
@@ -67,10 +69,11 @@ For a template pack, use `kind: "template"` and add `contributes.templates`:
 ## PR Flow
 
 1. Fork the repository.
-2. Add your catalog entry to `extensions/catalog.json`.
-3. Add `extensions/<your-extension-id>/index.html`.
-4. Run `npm run build`.
-5. Open a pull request with the store submission template.
+2. Generate your pack in `/builder/`.
+3. Add your catalog entry to `extensions/catalog.json`.
+4. Add `extensions/<your-extension-id>/index.html`.
+5. Run `npm run ci:pr`.
+6. Open a pull request with the store submission template.
 
 The bot validates the catalog and comments with the merge checklist. A LatexDo maintainer must approve before merge.
 
@@ -135,5 +138,5 @@ The bot validates the catalog and comments with the merge checklist. A LatexDo m
 - Keep snippets focused and safe to insert into LaTeX source.
 - Keep templates complete enough to compile or edit immediately.
 - Use HTTPS URLs for `homepage` and `repository`.
-- Run `npm run build` before opening a PR.
+- Run `npm run ci:pr` before opening a PR.
 - Do not include remote scripts, trackers, credential prompts, or obfuscated payloads.

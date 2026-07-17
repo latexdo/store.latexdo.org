@@ -4,14 +4,14 @@
   "private": true,
   "description": "Static extension store for LatexDo.",
   "scripts": {
-    "build": "npm run validate:catalog && npm run validate:latexdo && node scripts/build-site.mjs",
+    "build": "npm run validate:catalog && node scripts/build-site.mjs",
     "ci:pr": "npm run validate:catalog && npm run validate:latexdo && node scripts/validate-pr.mjs && node scripts/build-site.mjs && node --check app.js && node --check scripts/build-site.mjs && node --check scripts/validate-catalog.mjs && node --check scripts/validate-latexdo-compat.mjs && node --check scripts/validate-pr.mjs && node --check scripts/pr-bot-comment.mjs",
     "deploy": "wrangler deploy",
     "dev": "python3 -m http.server 4176",
     "validate:catalog": "node scripts/validate-catalog.mjs",
     "validate:latexdo": "node --experimental-strip-types scripts/validate-latexdo-compat.mjs",
     "wrangler:dev": "wrangler dev",
-    "test": "npm run build"
+    "test": "npm run ci:pr"
   },
   "devDependencies": {
     "wrangler": "^4.107.0"
