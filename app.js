@@ -892,9 +892,9 @@ function buildExtensionDetailPageHtml() {
   <body>
     <header class="site-header" data-header>
       <nav class="nav-shell" aria-label="Primary navigation">
-        <a class="brand" href="https://latexdo.org" aria-label="LatexDo home">
+        <a class="brand" href="/" aria-label="LatexDo Store home">
           <img src="/assets/icon.svg" alt="" width="36" height="36" />
-          <span>LatexDo</span>
+          <span>LatexDo Store</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-nav-toggle>
           <span></span>
