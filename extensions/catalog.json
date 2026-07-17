@@ -12,7 +12,11 @@
       "description": "Enables conference checks, PDF compliance, and compiler diagnostics for submission-ready papers.",
       "author": "LatexDo",
       "category": "checking",
-      "tags": ["conference", "pdf", "submission"],
+      "tags": [
+        "conference",
+        "pdf",
+        "submission"
+      ],
       "homepage": "https://store.latexdo.org/extensions/latexdo.conference-readiness/",
       "repository": "https://github.com/latexdo/store.latexdo.org",
       "contributes": {
@@ -38,7 +42,11 @@
       "description": "Turns on citation analysis, duplicate detection, stale-reference warnings, and BibTeX helpers.",
       "author": "LatexDo",
       "category": "bibliography",
-      "tags": ["bibtex", "citations", "references"],
+      "tags": [
+        "bibtex",
+        "citations",
+        "references"
+      ],
       "homepage": "https://store.latexdo.org/extensions/latexdo.citation-workbench/",
       "repository": "https://github.com/latexdo/store.latexdo.org",
       "contributes": {
@@ -72,7 +80,11 @@
       "description": "Adds figure, subfigure, and TikZ helpers for papers that depend on diagrams and visual results.",
       "author": "LatexDo",
       "category": "graphics",
-      "tags": ["figures", "tikz", "graphics"],
+      "tags": [
+        "figures",
+        "tikz",
+        "graphics"
+      ],
       "homepage": "https://store.latexdo.org/extensions/latexdo.figure-lab/",
       "repository": "https://github.com/latexdo/store.latexdo.org",
       "contributes": {
@@ -106,7 +118,11 @@
       "description": "Adds the visual table builder for generating LaTeX tabular code.",
       "author": "LatexDo",
       "category": "graphics",
-      "tags": ["tables", "tabular", "latex"],
+      "tags": [
+        "tables",
+        "tabular",
+        "latex"
+      ],
       "homepage": "https://store.latexdo.org/extensions/latexdo.table-generator/",
       "repository": "https://github.com/latexdo/store.latexdo.org",
       "contributes": {
@@ -124,7 +140,11 @@
       "description": "Enables notation checks and adds theorem, proof, definition, and symbol snippets.",
       "author": "LatexDo",
       "category": "writing",
-      "tags": ["math", "theorems", "notation"],
+      "tags": [
+        "math",
+        "theorems",
+        "notation"
+      ],
       "homepage": "https://store.latexdo.org/extensions/latexdo.math-notation-kit/",
       "repository": "https://github.com/latexdo/store.latexdo.org",
       "contributes": {
@@ -165,7 +185,11 @@
       "description": "Checks code, data, hardware, hyperparameter, metric, seed, and license reporting.",
       "author": "LatexDo",
       "category": "checking",
-      "tags": ["reproducibility", "artifact", "checklist"],
+      "tags": [
+        "reproducibility",
+        "artifact",
+        "checklist"
+      ],
       "homepage": "https://store.latexdo.org/extensions/latexdo.reproducibility-kit/",
       "repository": "https://github.com/latexdo/store.latexdo.org",
       "contributes": {
@@ -198,7 +222,11 @@
       "description": "Adds reviewer-response snippets for rebuttals, revisions, and camera-ready letters.",
       "author": "LatexDo",
       "category": "templates",
-      "tags": ["review", "rebuttal", "response"],
+      "tags": [
+        "review",
+        "rebuttal",
+        "response"
+      ],
       "homepage": "https://store.latexdo.org/extensions/latexdo.response-letter-kit/",
       "repository": "https://github.com/latexdo/store.latexdo.org",
       "contributes": {
