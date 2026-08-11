@@ -20,7 +20,7 @@ const files = [
   "index.html",
   "style.css",
 ];
-const directories = ["assets", "builder", "extensions"];
+const directories = ["assets", "builder", "extensions", "partials"];
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });

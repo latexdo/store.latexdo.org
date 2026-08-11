@@ -1,3 +1,76 @@
+const siteIconPaths = {
+  Programs: `<path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /><path d="M8 5v14" /><path d="M16 5v14" />`,
+  Mission: `<path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /><path d="M8 5v14" /><path d="M16 5v14" />`,
+  Research: `<path d="M9 3h6" /><path d="M10 3v5l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V3" /><path d="M8.5 14h7" />`,
+  Blogpost: `<path d="M5 4h14v16H5z" /><path d="M8 8h8" /><path d="M8 12h8" /><path d="M8 16h5" />`,
+  Documentation: `<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z" /><path d="M8 7h8" /><path d="M8 11h8" />`,
+  Vision: `<circle cx="12" cy="12" r="3" /><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />`,
+  Compiler: `<path d="m10 8-4 4 4 4" /><path d="m14 8 4 4-4 4" /><path d="M12 5l-2 14" />`,
+  "Knowledge Graph": `<circle cx="6" cy="7" r="2" /><circle cx="18" cy="7" r="2" /><circle cx="12" cy="17" r="2" /><path d="M8 8l3 7" /><path d="M16 8l-3 7" /><path d="M8 7h8" />`,
+  Benchmarks: `<path d="M4 19V5" /><path d="M4 19h16" /><rect x="7" y="11" width="3" height="5" rx="1" /><rect x="12" y="8" width="3" height="8" rx="1" /><rect x="17" y="6" width="3" height="10" rx="1" />`,
+  AI: `<path d="M12 3v3" /><path d="M12 18v3" /><path d="M3 12h3" /><path d="M18 12h3" /><rect x="7" y="7" width="10" height="10" rx="2" /><path d="M10 14l2-5 2 5" /><path d="M10.8 12.5h2.4" />`,
+  Organization: `<path d="M4 20h16" /><path d="M6 20V5h9v15" /><path d="M15 10h3v10" /><path d="M9 9h3" /><path d="M9 13h3" /><path d="M9 17h3" />`,
+  About: `<circle cx="12" cy="12" r="9" /><path d="M12 11v5" /><path d="M12 8h.01" />`,
+  "Legal Notice": `<circle cx="12" cy="12" r="9" /><path d="M12 11v5" /><path d="M12 8h.01" />`,
+  Board: `<circle cx="9" cy="8" r="3" /><circle cx="17" cy="10" r="2.5" /><path d="M3.5 20a5.5 5.5 0 0 1 11 0" /><path d="M14 20a4.5 4.5 0 0 1 7 0" />`,
+  Contact: `<rect x="4" y="6" width="16" height="12" rx="2" /><path d="m4 8 8 6 8-6" />`,
+  "Code of Conduct": `<path d="M12 3 5 6v5c0 4.5 2.9 8.4 7 10 4.1-1.6 7-5.5 7-10V6l-7-3Z" /><path d="m9 12 2 2 4-5" />`,
+  Transparency: `<path d="M4 19V5" /><path d="M4 19h16" /><rect x="7" y="11" width="3" height="5" rx="1" /><rect x="12" y="8" width="3" height="8" rx="1" /><rect x="17" y="6" width="3" height="10" rx="1" />`,
+  Donations: `<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" />`,
+  Expenses: `<path d="M4 19V5" /><path d="M4 19h16" /><rect x="7" y="11" width="3" height="5" rx="1" /><rect x="12" y="8" width="3" height="8" rx="1" /><rect x="17" y="6" width="3" height="10" rx="1" />`,
+  "Source code": `<circle cx="6" cy="6" r="2" /><circle cx="18" cy="18" r="2" /><circle cx="6" cy="18" r="2" /><path d="M6 8v8" /><path d="M8 18h6a4 4 0 0 0 4-4V8" />`,
+  "Privacy Policies": `<rect x="5" y="10" width="14" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" />`,
+  "Terms of Use": `<path d="M7 3h7l4 4v14H7V3Z" /><path d="M14 3v5h5" /><path d="M10 12h6" /><path d="M10 16h6" />`,
+};
+
+function createSiteIcon(className, icon) {
+  const iconEl = document.createElement("span");
+  iconEl.className = className;
+  iconEl.setAttribute("aria-hidden", "true");
+  iconEl.innerHTML = `<svg viewBox="0 0 24 24" focusable="false">${icon}</svg>`;
+  return iconEl;
+}
+
+function getSiteIconPath(label) {
+  const baseLabel = label.replace(/\s+Pro$/, "");
+  return siteIconPaths[label] ?? siteIconPaths[baseLabel];
+}
+
+async function loadFooterIncludes() {
+  const placeholders = Array.from(document.querySelectorAll("[data-footer-src]"));
+  if (!placeholders.length) return;
+
+  await Promise.all(placeholders.map(async (placeholder) => {
+    const source = placeholder.dataset.footerSrc || "/partials/footer.html";
+    try {
+      const response = await fetch(source);
+      if (!response.ok) throw new Error(`Footer include returned ${response.status}`);
+      placeholder.outerHTML = (await response.text()).trim();
+    } catch {
+      placeholder.hidden = true;
+    }
+  }));
+}
+
+function initFooter() {
+  const year = document.querySelector("#copyright-year");
+  if (year) year.textContent = String(new Date().getFullYear());
+
+  document.querySelectorAll(".site-footer h5").forEach((heading) => {
+    const label = heading.textContent?.trim() ?? "";
+    const icon = getSiteIconPath(label);
+    if (!icon || heading.querySelector(".footer-heading-icon")) return;
+    heading.prepend(createSiteIcon("footer-heading-icon", icon));
+  });
+
+  document.querySelectorAll(".site-footer nav a").forEach((link) => {
+    const label = link.textContent?.trim() ?? "";
+    const icon = getSiteIconPath(label);
+    if (!icon || link.querySelector(".footer-link-icon")) return;
+    link.prepend(createSiteIcon("footer-link-icon", icon));
+  });
+}
+
 const categoryLabels = {
   bibliography: "Bibliography",
   checking: "Checking",
@@ -105,9 +178,6 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const navLinksMenu = document.querySelector("[data-nav-links]");
 const copyrightYear = document.querySelector("#copyright-year");
 
-if (copyrightYear) {
-  copyrightYear.textContent = String(new Date().getFullYear());
-}
 
 if (navToggle && navLinksMenu) {
   navToggle.addEventListener("click", () => {
@@ -123,6 +193,8 @@ if (navToggle && navLinksMenu) {
     }
   });
 }
+
+loadFooterIncludes().then(initFooter).catch(initFooter);
 
 init().catch((error) => {
   renderError(error instanceof Error ? error.message : "Could not load catalog.");
